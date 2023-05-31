@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lindur Plan Laguboti</title>
+  <link rel="stylesheet" href="{{url_for('static',filename='dist/css/output.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='datatables/datatables.min.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='dist/css/tables.css')}}">
+</head>
+
+<body>
+
+  <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar" type="button"
+    class="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+    <span class="sr-only">Open sidebar</span>
+    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+      <path clip-rule="evenodd" fill-rule="evenodd"
+        d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
+      </path>
+    </svg>
+  </button>
+
+  <aside id="logo-sidebar"
+    class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
+    aria-label="Sidebar">
+    <div class="h-full px-3 py-4 overflow-y-auto bg-sidebar dark:bg-gray-800">
+      <a href="/" class="items-center pl-2.5">
+        <img src="{{url_for('static',filename='img/logo.png')}}" class="mx-auto block w-32 h-32 object-cover mb-4" />
+        <span
+          class="self-center text-xl font-semibold whitespace-nowrap text-white text-center mx-auto block mb-4">Lindur
+          Plan Laguboti</span>
+      </a>
+      <ul class="space-y-2 font-medium">
+        <li>
+          <a href="/" class="flex items-center p-2 text-gray-400 rounded-lg">
+            <span class="flex-1 ml-3 whitespace-nowrap">Beranda</span>
+            <span class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-gray-900">
+              <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 transition duration-75 text-gray-400" fill="none"
+                stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"></path>
+              </svg>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="/ta" class="flex items-center p-2 text-gray-400 rounded-lg">
+            <span class="flex-1 ml-3 whitespace-nowrap">Scope TA</span>
+            <span class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-gray-900">
+              <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 transition duration-75 text-gray-400" fill="none"
+                stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"></path>
+              </svg>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="/newcluster" class="flex items-center p-2 text-gray-900 rounded-lg bg-secondary">
+            <span class="flex-1 ml-3 whitespace-nowrap">New Cluster</span>
+            <span class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-gray-400">
+              <svg aria-hidden="true"
+                class="flex-shrink-0 w-6 h-6 transition duration-75 text-gray-900 group-hover:text-gray-900 dark:group-hover:text-white"
+                fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"></path>
+              </svg>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="justify-center items-center p-2 text-white absolute bottom-4 left-8 right-0">
+      <p class="font-semibold">TA-13-2022</p>
+    </div>
+  </aside>
+  <div class="p-4 sm:ml-64 bg-background">
+    <div class="flex items-center">
+      <hr class="flex-grow border-secondary border-t border-4">
+      <h1 class="text-xl font-bold mx-4">Hasil Clustering Terbaru</h1>
+      <hr class="flex-grow border-secondary border-t border-4">
+    </div>
+    <div class="justify-center items-center mb-8">
+      <h1 class="text-xl font-bold text-center mx-auto block">Secara Import Data</h1>
+    </div>
+
+    <div class="mb-4 rounded bg-white dark:bg-gray-800 p-4">
+      <div class="mb-4">
+        <span class="font-semibold">Data Excel :</span>
+        <span class="text-gray-500">(Harus 3 Bulan)</span>
+      </div>
+
+      <form action="" method="post" enctype="multipart/form-data">
+        <div class="mb-4">
+          <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file1">File 1</label>
+          <input
+            class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none"
+            id="file1" name="file1" type="file" required>
+        </div>
+        <div class="mb-4">
+          <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file1">File 2</label>
+          <input
+            class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none"
+            id="file1" name="file2" type="file" required>
+        </div>
+        <div class="mb-4">
+          <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file1">File 3</label>
+          <input
+            class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none"
+            id="file1" name="file3" type="file" required>
+        </div>
+        <button type="submit" class="text-white bg-sidebar hover:bg-secondary hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Hasil</button>
+        <a href="/newcluster" class="text-white bg-sidebar hover:bg-secondary hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Cluster Ulang</a>
+      </form>
+    </div>
+    <div class="mb-4 rounded bg-white dark:bg-gray-800 p-4">
+      <div class="mb-4">
+        <span class="font-semibold mr-4">A. Total Cluster</span>
+        <span class="text-gray-500">Proses Clustering Berakhir Di sini :</span>
+      </div>
+      <table>
+        <tbody>
+          <tr>
+            <td class="pl-5 pr-2"><span>Sangat Laris</span></td>
+            <td><span>(C1) =</span>{% if data %} {{data['Sangat Laris']}} Produk {% endif %}</td>
+          </tr>
+          <tr>
+            <td class="pl-5 pr-2"><span>Laris</span></td>
+            <td><span>(C2) =</span>{% if data %} {{data['Laris']}} Produk {% endif %}</td>
+          </tr>
+          <tr>
+            <td class="pl-5 pr-2"><span>Tidak Laris</span></td>
+            <td><span>(C3) =</span>{% if data %} {{data['Tidak Laris']}} Produk {% endif %}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="mb-4 rounded bg-white dark:bg-gray-800 p-4">
+      <div class="flex justify-between mb-4">
+        <span class="text-dark font-semibold mb-4 mr-4">B. Hasil Clustering dalam Bentuk Tabel</span>
+        <span>
+          {% if data %}
+          <a href="{{ url_for('download_file', filename='new_clustering.csv') }}" class="justify-end text-white bg-sidebar focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none">Download CSV</a>
+          {% endif %}
+        </span>
+      </div>
+
+      <div class="relative overflow-x-auto">
+        <table id="data-table" class="w-full text-sm text-left text-gray-500 dark:text-gray-400 mb-4">
+          <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+              <th scope="col" class="px-6 py-3 no-sort">
+                Invoice No
+              </th>
+              <th scope="col" class="px-6 py-3 no-sort">
+                Stok Awal
+              </th>
+              <th scope="col" class="px-6 py-3 no-sort">
+                Stok Akhir
+              </th>
+              <th scope="col" class="px-6 py-3 no-sort">
+                Nama Barang
+              </th>
+              <th scope="col" class="px-6 py-3 no-sort">
+                Jenis Barang
+              </th>
+              <th scope="col" class="px-6 py-3 no-sort">
+                Kode Barang
+              </th>
+              <th scope="col" class="px-6 py-3 no-sort">
+                Kuantitas Barang
+              </th>
+              <th scope="col" class="px-6 py-3 no-sort">
+                Tanggal
+              </th>
+              <th scope="col" class="px-6 py-3">
+                Cluster
+              </th>
+            </tr>
+          </thead>
+          {% if data %}
+          <tbody>
+            {% for index, row in data['tabel'].iterrows() %}
+            <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
+              <td class="px-6">{{ row['invoiceno'] }}</td>
+              <td class="px-6">{{ row['stokawal'] }}</td>
+              <td class="px-6">{{ row['stokakhir'] }}</td>
+              <td class="px-6">{{ row['namabarang'] }}</td>
+              <td class="px-6">{{ row['jenisbarang'] }}</td>
+              <td class="px-6">{{ row['kodebarang'] }}</td>
+              <td class="px-6">{{ row['kuantitasbarang'] }}</td>
+              <td class="px-6">{{ row['day'] }}/{{ row['month'] }}/{{ row['year'] }}</td>
+              <td class="px-6">{{ row['cluster'] }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+          {% endif %}
+        </table>
+      </div>
+
+    </div>
+    <div class="mb-4 rounded bg-white dark:bg-gray-800 p-4">
+      <p class="text-dark font-semibold mb-4">C. Analisa Cluster</p>
+      {% if data %}
+      <div class="grid grid-cols-2 gap-2 mb-4">
+        <div class="flex items-center justify-start rounded">
+          <img src="{{url_for('static',filename='files/clusters.png')}}" />
+        </div>
+        <div class="flex items-center justify-center rounded">
+          <img src="{{url_for('static',filename='files/bsl.png')}}" class="w-75" />
+        </div>
+      </div>
+      {% endif %}
+    </div>
+    {% if data %}
+    <div class="flex justify-center items-center mb-8">
+      <h2 class="font-bold">Hasil Evaluasi MPC : {{data['mpc']}}</h2>
+    </div>
+    {% endif %}
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+  <script src="{{url_for('static', filename='jquery/jquery-3.6.0.min.js')}}"></script>
+  <script src="{{url_for('static', filename='datatables/datatables.min.js')}}"></script>
+  <script>
+    $(document).ready(function () {
+      $('#data-table').DataTable({
+        lengthChange: false,
+        "ordering": true,
+        // searching: false,
+        columnDefs: [{
+          orderable: false,
+          targets: "no-sort"
+        }]
+      });
+    });
+  </script>
+</body>
+
+</html>
